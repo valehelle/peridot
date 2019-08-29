@@ -1,0 +1,57 @@
+<div style="margin-top: 40px;" >
+   <form phx-change="search" style="margin-bottom: 0px;">
+      <fieldset style="margin-bottom: 0px; margin-left: 0px;">
+         <div class="container" >
+            <div class="row">
+               <div class="column column-100">
+                  <input name="q" placeholder="ex: React, Elixir, Australia" value="<%= @search %>" style = "
+                     width: 100%;   
+                     border: none;
+                     border:solid 1px #f60;
+                     padding: 10px;
+                     border-radius: 5px;"/>
+               </div>
+            </div>
+            <div class="row">
+               <div class="column">
+                  <input name="remote" type="checkbox" value="true"> Remote 
+                  <span style="margin-left: 20px;">
+                  <input name="relocate" type="checkbox" value="true"> Relocate 
+                  </span>
+               </div>
+            </div>
+         </div>
+         
+      </fieldset>
+   </form>
+</div>
+<div class="result container">
+   <div class="row">
+      <div class="column">
+         <div style="margin-bottom:0; margin-top: 10px;">
+            <p style=" margin-bottom:5px;"><%= length(@posts) %> results found.</p>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="container" style = "padding-top: 30px; background-color:#f6f6ef; border-radius: 5px;">
+   <div class="row">
+      <div class="column">
+         <%= for post <- @posts do %>
+         <div id="post">
+            <%= post.username %> 
+            <%= if post.remote do %>
+            <span style = "font-size: 12px; background-color: #f60; color: white; padding-left: 5px; padding-right: 5px; border-radius: 5px; padding:3px;">Remote</span>
+            <%= end %>
+            <%= if post.relocate do %>
+            <span style = "font-size: 12px; background-color: #f60; color: white; padding-left: 5px; padding-right: 5px; border-radius: 5px; padding:3px;">Relocate</span>
+            <%= end %>
+            <div style="margin-top: 5px; color: black; overflow: hidden;">
+               <%= Phoenix.HTML.raw(HtmlSanitizeEx.basic_html(post.content)) %>
+            </div>
+         </div>
+         <hr style="border-top-color: #f60;"/>
+         <% end %>
+      </div>
+   </div>
+</div>

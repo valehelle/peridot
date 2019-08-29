@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>To Be Hired</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:900&amp;display=swap" rel="stylesheet">
+    <style>
+    @media screen and (min-width: 80.0rem) {
+      .container{
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+          #post{
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+
+
+
+    </style>
+  </head>
+  <body style="margin:0;">
+    <header style="background-color:#f60;">
+      <div class="container" style = "padding-top: 20px; ">
+        <div class="row">
+          <div class="column">
+            <h1 style="color: white; font-weight: bold">To Be Hired</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main role="main">
+          <%= render @view_module, @view_template, assigns %>
+
+    </main>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>
