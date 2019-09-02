@@ -47,7 +47,9 @@ defmodule Peridot.MixProject do
       {:httpoison, "~> 1.5"},
       {:phoenix_live_view, github: "phoenixframework/phoenix_live_view"},
       {:timex, "~> 3.5"},
-      {:html_sanitize_ex, "~> 1.3.0-rc3"}
+      {:html_sanitize_ex, "~> 1.3.0-rc3"},
+      {:edeliver, "~> 1.7.0"},
+      {:distillery, "~> 2.1.1"}
     ]
   end
 

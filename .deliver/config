@@ -1,0 +1,38 @@
+APP="peridot"
+
+BUILD_HOST="whowantstobehired.com"
+BUILD_USER="deploy"
+BUILD_AT="/home/deploy/peridot/app_build"
+
+PRODUCTION_HOSTS="whowantstobehired.com" 
+PRODUCTION_USER="deploy"
+DELIVER_TO="/home/deploy/peridot/app_release" 
+
+
+pre_erlang_get_and_update_deps() {
+  local _prod_secret_path="/home/deploy/peridot/app_config/prod.secret.exs"
+  if [ "$TARGET_MIX_ENV" = "prod" ]; then
+    __sync_remote "
+      ln -sfn '$_prod_secret_path' '$BUILD_AT/config/prod.secret.exs'
+    "
+  fi
+}
+pre_erlang_clean_compile() {
+  status "Running phoenix.digest"
+  __sync_remote " # runs the commands on the build host
+    # [ -f ~/.profile ] && source ~/.profile # load profile (optional)
+    source ~/.profile
+    # echo \$PATH # check if rbenv is in the path
+    set -e # fail if any command fails (recommended)
+    cd '$BUILD_AT' # enter the build directory on the build host (required)
+    # prepare something
+    mkdir -p priv/static # required by the phoenix.digest task
+    cd 'assets'
+    npm install 
+    
+    npm run deploy --prefix 
+    cd '$BUILD_AT'
+    # run your custom task
+    APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phx.digest $SILENCE
+  "
+}
