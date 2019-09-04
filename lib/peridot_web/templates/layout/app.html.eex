@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>To Be Hired</title>
+    <title>Who Wants To Be Hired</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
@@ -23,17 +23,24 @@
         padding-right: 15px;
       }
     }
-
-
-
     </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115169227-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-115169227-4');
+    </script>
+
   </head>
   <body style="margin:0;">
     <header style="background-color:#f60;">
       <div class="container" style = "padding-top: 20px; ">
         <div class="row">
           <div class="column">
-            <h1 style="color: white; font-weight: bold">To Be Hired</h1>
+            <h1 style="color: white; font-weight: bold">Who Wants To Be Hired</h1>
           </div>
         </div>
       </div>
