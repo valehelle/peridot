@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Who Wants To Be Hired</title>
+    <title>Who Wants To Be Hired!</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
